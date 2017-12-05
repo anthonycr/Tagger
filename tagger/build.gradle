@@ -1,0 +1,15 @@
+apply plugin: 'kotlin'
+
+sourceCompatibility = "1.6"
+targetCompatibility = "1.6"
+
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = "1.6"
+    }
+}
+compileTestKotlin {
+    kotlinOptions {
+        jvmTarget = "1.6"
+    }
+}

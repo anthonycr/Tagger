@@ -1,0 +1,1 @@
+include ':app', ':tagger', ':tagger-compiler'
