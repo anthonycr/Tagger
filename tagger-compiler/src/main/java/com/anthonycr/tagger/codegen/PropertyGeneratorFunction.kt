@@ -28,7 +28,7 @@ class PropertyGeneratorFunction : (TagModel) -> PropertySpec {
                 .build()
 
         return PropertySpec
-                .builder("${tagModel.element.qualifiedName}.TAG", String::class)
+                .builder("${tagModel.element.qualifiedName}?.TAG", String::class)
                 .mutable(false)
                 .getter(getterSpec)
                 .build()
