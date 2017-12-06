@@ -1,9 +1,16 @@
 package com.anthonycr.tagger
 
 /**
- * Created by anthonycr on 12/4/17.
+ * Annotation processor argument name for the option that allows you to change the package name.
  */
-
 const val OPTION_PACKAGE_NAME = "Tagger_PackageName"
 
-const val OPTION_PACKAGE_NAME_DEFAULT = "com.anthonycr.tagger"
+/**
+ * The default value for [OPTION_PACKAGE_NAME].
+ */
+const val OPTION_PACKAGE_NAME_DEFAULT = "com.anthonycr.tagger.generated"
+
+/**
+ * The name of the file generated which contains all the tag constants.
+ */
+const val GENERATED_FILE_NAME = "Tags"

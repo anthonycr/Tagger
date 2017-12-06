@@ -1,4 +1,4 @@
-package com.anthonycr.tagger;
+package com.anthonycr.tagger.sample;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

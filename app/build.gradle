@@ -7,7 +7,7 @@ android {
     compileSdkVersion 27
     buildToolsVersion '27.0.1'
     defaultConfig {
-        applicationId "com.anthonycr.tagger"
+        applicationId "com.anthonycr.tagger.sample"
         minSdkVersion 19
         targetSdkVersion 27
         versionCode 1
@@ -25,6 +25,13 @@ android {
         main.java.srcDirs += 'build/generated/source/kapt/release'
         main.java.srcDirs += 'build/generated/source/kaptKotlin/debug'
         main.java.srcDirs += 'build/generated/source/kaptKotlin/release'
+    }
+}
+
+kapt {
+    arguments {
+        // TODO maybe remove this as TAG won't be auto imported if the package is different
+        arg("Tagger_PackageName", "com.anthonycr.sample")
     }
 }
 
