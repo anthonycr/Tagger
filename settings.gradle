@@ -1,1 +1,1 @@
-include ':app', ':tagger', ':tagger-compiler'
+include ':sample', ':tagger', ':tagger-compiler'
