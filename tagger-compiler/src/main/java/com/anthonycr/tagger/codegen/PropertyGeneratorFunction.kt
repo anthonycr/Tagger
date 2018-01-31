@@ -18,8 +18,8 @@ class PropertyGeneratorFunction : (TagModel) -> PropertySpec {
 
     override fun invoke(tagModel: TagModel): PropertySpec {
         val returnValue = when (tagModel.caseStyle) {
-            CaseStyle.ALL_CAPS -> tagModel.element.simpleName.toString()
-            CaseStyle.NORMAL -> tagModel.element.simpleName.toString().toUpperCase()
+            CaseStyle.ALL_CAPS -> tagModel.element.simpleName.toString().toUpperCase()
+            CaseStyle.NORMAL -> tagModel.element.simpleName.toString()
         }
 
         val getterSpec = FunSpec
