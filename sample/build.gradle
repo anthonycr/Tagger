@@ -31,7 +31,7 @@ android {
 kapt {
     arguments {
         // TODO maybe remove this as TAG won't be auto imported if the package is different
-        arg("Tagger_PackageName", "com.anthonycr.sample")
+        arg("tagger.package_name", "com.anthonycr.sample")
     }
 }
 

@@ -3,7 +3,7 @@ package com.anthonycr.tagger
 /**
  * Annotation processor argument name for the option that allows you to change the package name.
  */
-const val OPTION_PACKAGE_NAME = "Tagger_PackageName"
+const val OPTION_PACKAGE_NAME = "tagger.package_name"
 
 /**
  * The default value for [OPTION_PACKAGE_NAME].
