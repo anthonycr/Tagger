@@ -28,7 +28,8 @@ class TaggerProcessor : AbstractProcessor() {
 
     override fun getSupportedSourceVersion(): SourceVersion = SourceVersion.latestSupported()
 
-    override fun getSupportedAnnotationTypes() = setOf(Tag::class.java.name)
+    override fun getSupportedAnnotationTypes() =
+            setOf(Tag::class.qualifiedName)
 
     override fun init(environment: ProcessingEnvironment) {
         super.init(environment)
