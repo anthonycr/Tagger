@@ -24,18 +24,18 @@ class TaggerProcessor : AbstractProcessor() {
 
     private var isProcessed = false
 
-    override fun getSupportedOptions() = mutableSetOf(OPTION_PACKAGE_NAME)
+    override fun getSupportedOptions() = setOf(OPTION_PACKAGE_NAME)
 
     override fun getSupportedSourceVersion(): SourceVersion = SourceVersion.latestSupported()
 
-    override fun getSupportedAnnotationTypes() = mutableSetOf(Tag::class.java.name)
+    override fun getSupportedAnnotationTypes() = setOf(Tag::class.java.name)
 
     override fun init(environment: ProcessingEnvironment) {
         super.init(environment)
         MessagerUtils.messager = environment.messager
     }
 
-    override fun process(set: MutableSet<out TypeElement>?, roundEnvironment: RoundEnvironment): Boolean {
+    override fun process(set: Set<TypeElement>?, roundEnvironment: RoundEnvironment): Boolean {
         if (isProcessed) {
             return true
         }
