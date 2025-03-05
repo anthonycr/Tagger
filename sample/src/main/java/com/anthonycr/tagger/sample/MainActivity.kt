@@ -3,7 +3,6 @@ package com.anthonycr.tagger.sample
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
-import com.anthonycr.tagger.R
 import com.anthonycr.sample.TAG
 import com.anthonycr.tagger.Tag
 
