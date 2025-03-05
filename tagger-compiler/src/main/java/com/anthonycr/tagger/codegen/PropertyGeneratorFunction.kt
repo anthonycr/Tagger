@@ -4,6 +4,7 @@ import com.anthonycr.tagger.CaseStyle
 import com.anthonycr.tagger.source.TagModel
 import com.squareup.kotlinpoet.FunSpec
 import com.squareup.kotlinpoet.PropertySpec
+import java.util.Locale
 import javax.lang.model.element.Element
 
 /**
@@ -18,7 +19,7 @@ class PropertyGeneratorFunction : (TagModel) -> PropertySpec {
 
     override fun invoke(tagModel: TagModel): PropertySpec {
         val returnValue = when (tagModel.caseStyle) {
-            CaseStyle.ALL_CAPS -> tagModel.element.simpleName.toString().toUpperCase()
+            CaseStyle.ALL_CAPS -> tagModel.element.simpleName.toString().uppercase(Locale.ROOT)
             CaseStyle.NORMAL -> tagModel.element.simpleName.toString()
         }
 

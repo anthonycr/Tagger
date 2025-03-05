@@ -7,6 +7,6 @@ import javax.lang.model.element.TypeElement
  * A model which describes an annotated element.
  */
 data class TagModel(
-        val element: TypeElement,
-        val caseStyle: CaseStyle
+    val element: TypeElement,
+    val caseStyle: CaseStyle
 )

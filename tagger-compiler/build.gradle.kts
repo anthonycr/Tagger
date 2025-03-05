@@ -12,9 +12,6 @@ dependencies {
     implementation("com.google.auto.service:auto-service:$autoServiceVersion")
     kapt("com.google.auto.service:auto-service:$autoServiceVersion")
 
-    // Kotlin
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:2.0.0")
-
     // Code generation
     implementation("com.squareup:kotlinpoet:0.6.0")
 
