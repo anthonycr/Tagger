@@ -13,7 +13,8 @@ dependencies {
     kapt("com.google.auto.service:auto-service:$autoServiceVersion")
 
     // Code generation
-    implementation("com.squareup:kotlinpoet:0.6.0")
+    implementation(libs.kotlinpoet)
+    implementation(libs.kotlinpoet.ksp)
 
     // Project dependency
     implementation(project(":tagger"))
@@ -30,6 +31,6 @@ kotlin {
         jvmTarget.set(JvmTarget.JVM_17)
     }
     jvmToolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
+        languageVersion.set(JavaLanguageVersion.of(libs.versions.jvm.get().toInt()))
     }
 }

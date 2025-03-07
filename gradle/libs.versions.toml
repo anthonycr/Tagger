@@ -1,0 +1,15 @@
+[versions]
+jetbrainsKotlin = "2.1.10"
+kotlinpoet = "2.1.0"
+ksp = "2.1.10-1.0.31"
+jvm = "17"
+
+[libraries]
+ksp-api = { group = "com.google.devtools.ksp", name = "symbol-processing-api", version.ref = "ksp" }
+kotlinpoet = { group = "com.squareup", name = "kotlinpoet", version.ref = "kotlinpoet" }
+kotlinpoet-ksp = { group = "com.squareup", name = "kotlinpoet-ksp", version.ref = "kotlinpoet" }
+
+[plugins]
+ksp-plugin = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+jetbrainsKotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlin" }
+jetbrainsKotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "jetbrainsKotlin" }

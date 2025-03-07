@@ -16,6 +16,6 @@ kotlin {
         jvmTarget.set(JvmTarget.JVM_17)
     }
     jvmToolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
+        languageVersion.set(JavaLanguageVersion.of(libs.versions.jvm.get().toInt()))
     }
 }

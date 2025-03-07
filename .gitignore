@@ -41,6 +41,9 @@ captures/
 .idea/libraries
 .idea/*
 
+# Kotlin
+.kotlin
+
 # Keystore files
 *.jks
 
