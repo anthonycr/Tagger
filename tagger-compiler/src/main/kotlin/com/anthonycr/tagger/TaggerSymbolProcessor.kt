@@ -24,15 +24,7 @@ class TaggerSymbolProcessor(
     private val packageName: String
 ) : SymbolProcessor {
 
-    private var isProcessed = false
-
     override fun process(resolver: Resolver): List<KSAnnotated> {
-        if (isProcessed) {
-            return emptyList()
-        }
-
-        isProcessed = true
-
         logger.info("Starting Tagger processing")
 
         resolver
@@ -52,13 +44,14 @@ class TaggerSymbolProcessor(
                     .build()
             }
             .toList()
-            .let { propertySpecs ->
+            .takeIf { it.isNotEmpty() }
+            ?.let { propertySpecs ->
                 FileSpec
                     .builder(packageName, GENERATED_FILE_NAME)
                     .addProperties(propertySpecs)
                     .build()
             }
-            .writeTo(codeGenerator, true)
+            ?.writeTo(codeGenerator, true)
 
         logger.info("Successfully finished Tagger processing")
 
