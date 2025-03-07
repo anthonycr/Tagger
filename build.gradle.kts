@@ -1,10 +1,5 @@
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-    }
-    dependencies {
-        classpath("com.android.tools.build:gradle:8.8.2")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:2.0.0")
-    }
+plugins {
+    alias(libs.plugins.android.app) apply false
+    alias(libs.plugins.kotlin.android) apply false
+    alias(libs.plugins.kotlin.jvm) apply false
 }

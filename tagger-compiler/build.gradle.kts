@@ -2,15 +2,15 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 
 plugins {
-    kotlin("jvm")
-    kotlin("kapt")
+    alias(libs.plugins.kotlin.jvm)
 }
 
 dependencies {
-    // Annotation processing
-    val autoServiceVersion = "1.0-rc3"
-    implementation("com.google.auto.service:auto-service:$autoServiceVersion")
-    kapt("com.google.auto.service:auto-service:$autoServiceVersion")
+    // KSP
+    implementation(libs.ksp.api)
+
+    // Kotlin
+    implementation(libs.kotlin)
 
     // Code generation
     implementation(libs.kotlinpoet)

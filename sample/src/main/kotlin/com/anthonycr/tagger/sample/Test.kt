@@ -8,7 +8,7 @@ import com.anthonycr.tagger.Tag
 /**
  * Created by anthonycr on 12/4/17.
  */
-@Tag(CaseStyle.ALL_CAPS)
+@Tag
 object Test {
 
     fun log() {

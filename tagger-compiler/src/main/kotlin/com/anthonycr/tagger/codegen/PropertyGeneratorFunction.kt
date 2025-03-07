@@ -1,9 +1,10 @@
 package com.anthonycr.tagger.codegen
 
 import com.anthonycr.tagger.CaseStyle
-import com.anthonycr.tagger.source.TagModel
+import com.google.devtools.ksp.symbol.KSClassDeclaration
 import com.squareup.kotlinpoet.FunSpec
 import com.squareup.kotlinpoet.PropertySpec
+import com.squareup.kotlinpoet.ksp.toClassName
 import java.util.Locale
 import javax.lang.model.element.Element
 
@@ -15,13 +16,10 @@ import javax.lang.model.element.Element
  *   get() = "HelloWorld"
  * ```
  */
-class PropertyGeneratorFunction : (TagModel) -> PropertySpec {
+class PropertyGeneratorFunction : (KSClassDeclaration) -> PropertySpec {
 
-    override fun invoke(tagModel: TagModel): PropertySpec {
-        val returnValue = when (tagModel.caseStyle) {
-            CaseStyle.ALL_CAPS -> tagModel.element.simpleName.toString().uppercase(Locale.ROOT)
-            CaseStyle.NORMAL -> tagModel.element.simpleName.toString()
-        }
+    override fun invoke(tagModel: KSClassDeclaration): PropertySpec {
+        val returnValue = tagModel.simpleName.asString()
 
         val getterSpec = FunSpec
                 .getterBuilder()
@@ -29,7 +27,8 @@ class PropertyGeneratorFunction : (TagModel) -> PropertySpec {
                 .build()
 
         return PropertySpec
-                .builder("${tagModel.element.qualifiedName}?.TAG", String::class)
+                .builder("TAG", String::class)
+                .receiver(tagModel.toClassName().copy(nullable = true))
                 .mutable(false)
                 .getter(getterSpec)
                 .build()

@@ -2,9 +2,9 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 
 plugins {
-    id("com.android.application")
-    kotlin("android")
-    kotlin("kapt")
+    alias(libs.plugins.android.app)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.ksp.plugin)
 }
 
 android {
@@ -18,7 +18,6 @@ android {
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
-        testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -30,24 +29,13 @@ android {
             )
         }
     }
+}
 
-//    sourceSets {
-//        getByName("main") {
-//            java.srcDirs(
-//                "build/generated/source/kapt/debug",
-//                "build/generated/source/kapt/release",
-//                "build/generated/source/kaptKotlin/debug",
-//                "build/generated/source/kaptKotlin/release"
-//            )
-//        }
+//kapt {
+//    arguments {
+//        arg("tagger.package_name", "com.anthonycr.sample")
 //    }
-}
-
-kapt {
-    arguments {
-        arg("tagger.package_name", "com.anthonycr.sample")
-    }
-}
+//}
 
 java {
     targetCompatibility = JavaVersion.VERSION_17
@@ -65,9 +53,9 @@ kotlin {
 }
 
 dependencies {
-    implementation("com.android.support:appcompat-v7:28.0.0")
-    implementation("com.android.support.constraint:constraint-layout:2.0.4")
+    implementation(libs.appcompat.v7)
+    implementation(libs.constraint.layout)
 
     implementation(project(":tagger"))
-    kapt(project(":tagger-compiler"))
+    ksp(project(":tagger-compiler"))
 }

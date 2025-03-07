@@ -1,15 +1,22 @@
 [versions]
-jetbrainsKotlin = "2.1.10"
+agp = "8.8.2"
+appcompatV7 = "28.0.0"
+constraintLayout = "2.0.4"
+kotlin = "2.1.10"
 kotlinpoet = "2.1.0"
 ksp = "2.1.10-1.0.31"
 jvm = "17"
 
 [libraries]
+appcompat-v7 = { module = "com.android.support:appcompat-v7", version.ref = "appcompatV7" }
+constraint-layout = { module = "com.android.support.constraint:constraint-layout", version.ref = "constraintLayout" }
 ksp-api = { group = "com.google.devtools.ksp", name = "symbol-processing-api", version.ref = "ksp" }
+kotlin = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib-jdk8", version.ref = "kotlin" }
 kotlinpoet = { group = "com.squareup", name = "kotlinpoet", version.ref = "kotlinpoet" }
 kotlinpoet-ksp = { group = "com.squareup", name = "kotlinpoet-ksp", version.ref = "kotlinpoet" }
 
 [plugins]
+android-app = { id = "com.android.application", version.ref = "agp" }
 ksp-plugin = { id = "com.google.devtools.ksp", version.ref = "ksp" }
-jetbrainsKotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlin" }
-jetbrainsKotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "jetbrainsKotlin" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
