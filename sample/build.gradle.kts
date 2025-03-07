@@ -31,11 +31,9 @@ android {
     }
 }
 
-//kapt {
-//    arguments {
-//        arg("tagger.package_name", "com.anthonycr.sample")
-//    }
-//}
+ksp {
+    arg("tagger.package_name", "com.anthonycr.sample")
+}
 
 java {
     targetCompatibility = JavaVersion.VERSION_17

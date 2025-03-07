@@ -2,7 +2,6 @@ package com.anthonycr.tagger.sample
 
 import android.util.Log
 import com.anthonycr.sample.TAG
-import com.anthonycr.tagger.CaseStyle
 import com.anthonycr.tagger.Tag
 
 /**
