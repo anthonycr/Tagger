@@ -1,17 +1,19 @@
 # Tagger
-An annotation processor example, written in Kotlin, generating Kotlin
+A Kotlin symbol processor example
 
 ## Abstract
 
-This annotation processor acts as an example of how to generate Kotlin code using the annotation processing framework. Using Kapt, we can generate idiomatic Kotlin code, which means annotation processors become more powerful with access to features like extension functions and properties. This example generates tag properties which are commonly used for logging, and unlike if they were generated from a Java specific annotation processor, this example is able to generate the tag properties as extensions of the annotated class.
+This Kotlin symbol processor acts as an example of how to generate Kotlin code using the Kotlin Symbol Processing (KSP) framework. Using KSP, we can generate idiomatic Kotlin code. This example generates tag properties which are commonly used for logging, as extensions of the annotated class.
 
 ## Gradle
 
-```groovy
-apply plugin: 'kotlin-kapt'
+```kotlin
+plugins {
+  id("com.google.devtools.ksp")
+}
 
-kapt project(':tagger-compiler')
-compile project(':tagger')
+ksp(project(":tagger-compiler"))
+implementation(project(":tagger")
 ```
 
 ## Usage
@@ -27,7 +29,7 @@ class HelloWorld {
 
 }
 ```
-The annotation processor generates an extension property for the annotated class.
+The symbol processor generates an extension property for the annotated class.
 ```kotlin
 val HelloWorld.TAG: String
   get() = "HelloWorld"
