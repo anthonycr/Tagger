@@ -9,6 +9,7 @@ import com.google.devtools.ksp.symbol.KSClassDeclaration
 import com.squareup.kotlinpoet.FileSpec
 import com.squareup.kotlinpoet.FunSpec
 import com.squareup.kotlinpoet.PropertySpec
+import com.squareup.kotlinpoet.ksp.addOriginatingKSFile
 import com.squareup.kotlinpoet.ksp.toClassName
 import com.squareup.kotlinpoet.ksp.writeTo
 
@@ -41,6 +42,7 @@ class TaggerSymbolProcessor(
                     .receiver(declaration.toClassName().copy(nullable = true))
                     .mutable(false)
                     .getter(funSpec)
+                    .addOriginatingKSFile(declaration.containingFile!!)
                     .build()
             }
             .toList()
