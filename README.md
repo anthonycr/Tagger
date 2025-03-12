@@ -12,8 +12,10 @@ plugins {
   id("com.google.devtools.ksp")
 }
 
-ksp(project(":tagger-compiler"))
-implementation(project(":tagger")
+dependencies {
+  ksp(project(":tagger-compiler"))
+  implementation(project(":tagger")
+}
 ```
 
 ## Usage
