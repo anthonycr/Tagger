@@ -21,8 +21,8 @@ import com.squareup.kotlinpoet.ksp.writeTo
  */
 class TaggerSymbolProcessor(
     private val codeGenerator: CodeGenerator,
+    private val packageName: String,
     private val logger: KSPLogger,
-    private val packageName: String
 ) : SymbolProcessor {
 
     override fun process(resolver: Resolver): List<KSAnnotated> {
